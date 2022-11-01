@@ -212,13 +212,13 @@ There are results below.
 
 ![ref_ref](./images/ref_loss.png)
 
-`Reference experiment - Recall : `
+`Reference experiment - Precision : `
 
 ![ref_precision](./images/ref_precision.png)
 
 `Reference experiment - Recall : `
 
-![ref_precision](./images/ref_recall.png)
+![ref_recall](./images/ref_recall.png)
 
 You can check the `classification loss` is upper than 20 at first and converges to zero later.
 And `localization loss` is showed extremely noisy in this result. 
@@ -228,4 +228,47 @@ But most of `Precision` and `Recall` are extremely low, so it is hard to use in 
 
 
 #### Improve on the reference
-This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
+**[Strategy #1] batch size** 
+- Because ResNet is large scale convolution neural network, increasing the batch size would be helpful.
+- The batch size is changed from `2` to `8`.
+- The detailed pipeline is in `experiments/improved/pipeline_new.config`.
+- There are results below.
+
+`Improved experiment - Loss : `
+
+![exp1_loss](./images/ref_loss.png)
+
+`Improved experiment - Precision : `
+
+![exp1_precision](./images/ref_precision.png)
+
+`Improved experiment - Recall : `
+
+![exp1_recall](./images/ref_recall.png)
+
+We see significant improvement in model loss, and Precision-Recall rate. This is a indication of better performance. 
+A video based on the model inferences for `data/test/segment-12200383401366682847_2552_140_2572_140_with_camera_labels.tfrecord`. We can see the model is now able to detect and classify objects nearby, but not the smaller objects far away.
+![exp1_video](experiments/experiment1/animation.gif)
+
+
+
+
+2. **Augmentation**
+- 0.2 probability of grayscale conversion: this could better simulate rainy or foggy weather conditions, or area under huge shadow
+![aug1](figures/aug5.png)
+- contrast value from 0.5 to 1.0: this added more variation to edge detectability
+![aug2](figures/aug_contrast.png)
+- brightness adjusted to 0.3: this could better simulate very sunny day with very bright light
+![aug3](figures/aug_bright.png) 
+More details of the agumentation can be found in `Explore augmentations.ipynb`, and the detailed pipeline is in `experiments/experiment2/pipeline_new.config`. However, due to limitation of memory in the VM workspace, we have to resort to batch size of `2`, and step size of `2500`, which is very likely not enough for the network to converge. As a result, the performance does improve a lot, compared with reference model.
+
+The results are as follows.
+- Training and validation loss of the model
+![exp1_loss](experiments/experiment2/tensorboard/loss.png)
+- Precision
+![exp1_precision](experiments/experiment2/tensorboard/precision.png)
+- Recall
+![exp1_recall](experiments/experiment2/tensorboard/recall.png)
+Althought we see a decrease in model loss, increase in precision and recall is tiny. The inference result is almost the same as that of the reference model, which barely detect anything. Thus, there is no pointing showing the inference video here.  
+
+By investigating the model on the test dataset, we can see the model is not goot at detecting small objects in the images. As cyclists only appear very scarcely in the datasets, we can expect the model to struggle to detect cyclists. In the future, improvements can be made in using higher resolution data for training, and sampling with more images with cyclist. More importantly, we want train for more steps with lower learning rate so that the model converges, provided that computers have larger computational resources and memories.
