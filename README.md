@@ -206,17 +206,18 @@ The downloaded dataset is shuffled and split into `training`, `testing`, and `va
 ### Training
 #### Reference experiment
 Reference experiment without augmentation was performed. The config file is located in `experiments/reference/pipeline_new.config`.
-Training loss is,
 
-<img src = "./images/reference_loss.png" width="450" height="280"/>
+`Reference experiment - Loss : `
 
-Precision is,
+<img src = "./images/reference_loss.png" width="500" height="400"/>
 
-<img src = "./images/reference_precision.png" width="450" height="280"/>
+`Reference experiment - Recall : `
 
-Recall is,
+<img src = "./images/reference_precision.png" width="500" height="400"/>
 
-<img src = "./images/reference_recall.png" width="450" height="280"/>
+`Reference experiment - Recall : `
+
+<img src = "./images/reference_recall.png" width="500" height="400"/>
 
 
 
