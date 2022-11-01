@@ -248,8 +248,8 @@ But most of `Precision` and `Recall` are extremely low, so it is hard to use in 
 
 We can see `classification loss` is significantly lower than berfore reference training.
 Also, `localization loss` is showed less noisy than previous results.
-In DetectionBoxes_Recall/AR@100, `Recall` little bit changed in training step 2.4k later.
-But most of `Precision` and `Recall` are extremely low, so it is hard to use in object detection.
+And metrices term `Precision` and `Recall` better than reference model training. 
+So it shows much better performance in object detection.
 
 
 
@@ -283,13 +283,6 @@ But most of `Precision` and `Recall` are extremely low, so it is hard to use in 
 ![exp2_recall](./images/imp2_recall.png)
 
 
+The loss is lower than the previous loss (un-augmented model). This is an indication of better performance. There should be more samples of augmented datapoints such as combining the contrast values with grayscale. Brightness can also be clamped within a limit instead of fixing it to 0.3 However the most important point is to add more samples of cyclists,pedestrians which are in a low quantity in the dataset. This is an inherent requirement since model biases play an important role in the loss curves and lesser the diversity in training samples, the lower will be the accuracy.
 
-
-We can augment the images by converting them to grayscale with a probability of 0.2. After this, we have clamped the contrast values between 0.6 and 1.0 such that more lighting datapoints are available for classification. A greater part of the images were a bit darker and increasing the brightness to 0.3 provided an even datapoint which could be better classified with the model.The pipeline changes are there in
-
-More details of the agumentation can be found in `Explore augmentations.ipynb`, and the detailed pipeline is in `experiments/experiment2/pipeline_new.config`. However, due to limitation of memory in the VM workspace, we have to resort to batch size of `2`, and step size of `2500`, which is very likely not enough for the network to converge. As a result, the performance does improve a lot, compared with reference model.
-
-
-Althought we see a decrease in model loss, increase in precision and recall is tiny. The inference result is almost the same as that of the reference model, which barely detect anything. Thus, there is no pointing showing the inference video here.  
-
-By investigating the model on the test dataset, we can see the model is not goot at detecting small objects in the images. As cyclists only appear very scarcely in the datasets, we can expect the model to struggle to detect cyclists. In the future, improvements can be made in using higher resolution data for training, and sampling with more images with cyclist. More importantly, we want train for more steps with lower learning rate so that the model converges, provided that computers have larger computational resources and memories.
+We have reduced overfitting to an extent with augmentation, however better classification results would be resulting from a more balanced dataset.
