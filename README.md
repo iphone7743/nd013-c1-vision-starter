@@ -188,7 +188,13 @@ $ python create_splits.py --source data/processed --destination data
 
 
 #### Dataset analysis
-This section should contain a quantitative and qualitative description of the dataset. It should include images, charts and other visualizations.
+
+Analysis for the downloaded dataset also can be performed. 
+Below shows the distribution of classes number (vehicle, pedestrian, cyclist) and mean pixel value distribution of dataset.
+You can get these results by running 'Exploratory_Data_Analysis.ipynb'.
+
+![data_analysis](./images/data_analysis.png)
+![mean_pixel](./images/mean_pixel.png)
 
 
 #### Cross validation
