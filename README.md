@@ -198,6 +198,7 @@ You can get these results by running `Exploratory_Data_Analysis.ipynb`.
 
 
 #### Cross validation
+Ideal ML algorithm should generalize well to larger unknown environment beyond that of training datasets. 
 The downloaded dataset is shuffled and split into `training`, `testing`, and `validation`.
 `75%` for training, `15%` for validation, and `10%` for testing to check the error rate in this project.
 
@@ -214,7 +215,7 @@ There are results below.
 
 `Reference experiment - Precision : `
 
-![ref_precision](./images/ref_precison.png)
+![ref_precision](./images/ref_precision.png)
 
 `Reference experiment - Recall : `
 
