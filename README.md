@@ -228,7 +228,7 @@ But most of `Precision` and `Recall` are extremely low, so it is hard to use in 
 
 
 #### Improve on the reference
-**[Strategy #1] batch size** 
+**[#1] Increase Batch Size** 
 - Because ResNet is large scale convolution neural network, increasing the batch size would be helpful.
 - The batch size is changed from `2` to `8`.
 - The detailed pipeline is in `experiments/improved/pipeline_new.config`.
@@ -253,7 +253,7 @@ A video based on the model inferences for `data/test/segment-1220038340136668284
 
 
 
-2. **Augmentation**
+**[#2] Train with Augmentation**
 - 0.2 probability of grayscale conversion: this could better simulate rainy or foggy weather conditions, or area under huge shadow
 ![aug1](figures/aug5.png)
 - contrast value from 0.5 to 1.0: this added more variation to edge detectability
