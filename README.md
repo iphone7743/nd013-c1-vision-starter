@@ -210,15 +210,15 @@ There are results below.
 
 `Reference experiment - Loss : `
 
-![ref_ref] (./images/ref_loss.png)
+![ref_ref](./images/ref_loss.png)
 
 `Reference experiment - Recall : `
 
-![ref_precision] (./images/ref_precision.png)
+![ref_precision](./images/ref_precision.png)
 
 `Reference experiment - Recall : `
 
-![ref_precision] (./images/ref_recall.png)
+![ref_precision](./images/ref_recall.png)
 
 You can check the `classification loss` is upper than 20 at first and converges to zero later.
 And `localization loss` is showed extremely noisy in this result. 
