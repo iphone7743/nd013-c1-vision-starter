@@ -205,7 +205,23 @@ The downloaded dataset is shuffled and split into `training`, `testing`, and `va
 
 ### Training
 #### Reference experiment
-This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
+Reference experiment without augmentation was performed. The config file is located in `experiments/reference/pipeline_new.config`.
+Training loss is,
+
+<img src = "./images/reference_loss.png" width="450" height="280"/>
+
+Precision is,
+
+<img src = "./images/reference_precision.png" width="450" height="280"/>
+
+Recall is,
+
+<img src = "./images/reference_recall.png" width="450" height="280"/>
+
+
+
+
+It should includes training metrics and a detailed explanation of the algorithm's performances.
 
 #### Improve on the reference
 This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
