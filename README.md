@@ -153,13 +153,15 @@ Detecting vehicles, pedestrians, signs, etc is very important issue in building 
 ### Set up
 If you want to set up this project in local computer with your own GPU, please use the Dockerfile to create the docker image from 'build' folder.
 
-#### Create docker image
-'''
-$ source ./build.sh
-'''
+You can create docker image by following command. 
 
-#### Run the image to create container
-''' 
+```
+$ source ./build.sh
+```
+
+Then, run the image to create container.
+
+```
 $ source ./run.sh
 ```
 
