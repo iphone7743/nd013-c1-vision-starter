@@ -240,15 +240,16 @@ But most of `Precision` and `Recall` are extremely low, so it is hard to use in 
 
 `Improved experiment1 - Precision : `
 
-![exp1_precision](./images/imp_precison.png)
+![exp1_precision](./images/imp_precision.png)
 
 `Improved experiment1 - Recall : `
 
 ![exp1_recall](./images/imp_recall.png)
 
-We see significant improvement in model loss, and Precision-Recall rate. This is a indication of better performance. 
-A video based on the model inferences for `data/test/segment-12200383401366682847_2552_140_2572_140_with_camera_labels.tfrecord`. We can see the model is now able to detect and classify objects nearby, but not the smaller objects far away.
-![exp1_video](experiments/experiment1/animation.gif)
+We can see `classification loss` is significantly lower than berfore reference training.
+Also, `localization loss` is showed less noisy than previous results.
+In DetectionBoxes_Recall/AR@100, `Recall` little bit changed in training step 2.4k later.
+But most of `Precision` and `Recall` are extremely low, so it is hard to use in object detection.
 
 
 
@@ -259,13 +260,13 @@ A video based on the model inferences for `data/test/segment-1220038340136668284
 - brightness adjusted to 0.3 
 - The detailed pipeline is in `experiments/improved_augment/pipeline_new.config`.
 
-- 0.02 probability gray scale conversion 
+`0.02 probability gray scale conversion : `
 ![aug1](./images/aug_gray.png)
 
-- contrast value from 0.5 to 1.0 
+`contrast value from 0.5 to 1.0 : `
 ![aug2](./images/aug_contrast.png)
 
-- brightness adjusted to 0.3 
+`brightness adjusted to 0.3 : `
 ![aug3](./images/aug_bright.png)
 
 
@@ -280,6 +281,7 @@ A video based on the model inferences for `data/test/segment-1220038340136668284
 `Improved experiment2 - Recall : `
 
 ![exp2_recall](./images/imp2_recall.png)
+
 
 
 
