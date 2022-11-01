@@ -141,16 +141,58 @@ python inference_video.py --labelmap_path label_map.pbtxt --model_path experimen
 ## Submission Template
 
 ### Project overview
-This section should contain a brief description of the project and what we are trying to achieve. Why is object detection such an important component of self driving car systems?
+This project is about UDACTY self-driving car nano degree computer vision project.
+Retraining the pretrained model (ssd_resnet50_v1_fpn_640x640_coco17) with Waymo dataset by TensorFlow Object Detection API.
+You can easily retrain model by just following this instructions. Addtionally, data analysis was performed in this project.
+And analysis between reference experiment and new method for improving model was performed.
+
+Object detection is one of the most important component in self driving car sytstem, because car should avoid collision when driving.
+Detecting vehicles, pedestrians, signs, etc is very important issue in building self driving system.
+
 
 ### Set up
-This section should contain a brief description of the steps to follow to run the code for this repository.
+If you want to set up this project in local computer with your own GPU, please use the Dockerfile to create the docker image from 'build' folder.
+
+#### Create docker image
+'''
+$ source ./build.sh
+'''
+
+#### Run the image to create container
+''' 
+$ source ./run.sh
+```
+
 
 ### Dataset
+You should downlaod the 'waymo' open dataset by Google Cloud before training the model.
+Please login google cloud with your account.
+
+```
+$ gcloud auth login
+```
+
+You can download the dataset with command.
+```
+$ python download_process.py
+```
+
+You should make the dataset folder, and split into (1) test (2) train (3) val folders.
+```
+$ mkdir data/test data/train data/val
+$ python create_splits.py --source data/processed --destination data
+```
+
+
+
 #### Dataset analysis
 This section should contain a quantitative and qualitative description of the dataset. It should include images, charts and other visualizations.
+
+
 #### Cross validation
 This section should detail the cross validation strategy and justify your approach.
+
+
 
 ### Training
 #### Reference experiment
