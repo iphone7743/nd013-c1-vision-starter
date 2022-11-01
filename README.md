@@ -142,7 +142,7 @@ python inference_video.py --labelmap_path label_map.pbtxt --model_path experimen
 
 ### Project overview
 This project is about UDACTY self-driving car nano degree computer vision project.
-Retraining the pretrained model (ssd_resnet50_v1_fpn_640x640_coco17) with Waymo dataset by TensorFlow Object Detection API.
+Retraining the pretrained model (`ssd_resnet50_v1_fpn_640x640_coco17`) with `Waymo dataset` by `TensorFlow Object Detection API`.
 You can easily retrain model by just following this instructions. Addtionally, data analysis was performed in this project.
 And analysis between reference experiment and new method for improving model was performed.
 
@@ -198,7 +198,8 @@ You can get these results by running `Exploratory_Data_Analysis.ipynb`.
 
 
 #### Cross validation
-This section should detail the cross validation strategy and justify your approach.
+The downloaded dataset is shuffled and split into `training`, `testing`, and `validation`.
+`75%` for training, `15%` for validation, and `10%` for testing to check the error rate in this project.
 
 
 
