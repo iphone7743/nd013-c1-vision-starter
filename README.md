@@ -214,7 +214,7 @@ There are results below.
 
 `Reference experiment - Recall : `
 
-<img src = "./images/ref_precison.png" width="500" height="400"/>
+<img src = "./images/ref_precision.png" width="500" height="400"/>
 
 `Reference experiment - Recall : `
 
