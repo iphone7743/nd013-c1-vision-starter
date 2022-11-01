@@ -236,15 +236,15 @@ But most of `Precision` and `Recall` are extremely low, so it is hard to use in 
 
 `Improved experiment - Loss : `
 
-![exp1_loss](./images/ref_loss.png)
+![exp1_loss](./images/imp_loss.png)
 
 `Improved experiment - Precision : `
 
-![exp1_precision](./images/ref_precision.png)
+![exp1_precision](./images/imp_precision.png)
 
 `Improved experiment - Recall : `
 
-![exp1_recall](./images/ref_recall.png)
+![exp1_recall](./images/imp_recall.png)
 
 We see significant improvement in model loss, and Precision-Recall rate. This is a indication of better performance. 
 A video based on the model inferences for `data/test/segment-12200383401366682847_2552_140_2572_140_with_camera_labels.tfrecord`. We can see the model is now able to detect and classify objects nearby, but not the smaller objects far away.
