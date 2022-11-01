@@ -231,7 +231,7 @@ But most of `Precision` and `Recall` are extremely low, so it is hard to use in 
 ***[#1] Increase Batch Size***
 - Because ResNet is large scale convolution neural network, increasing the batch size would be helpful.
 - The batch size is changed from `2` to `8`.
-- The detailed pipeline is in `experiments/improved/pipeline_new.config`.
+- The detailed pipeline is in `experiments/improved_batch/pipeline_new.config`.
 - There are results below.
 
 `Improved experiment1 - Loss : `
@@ -254,13 +254,20 @@ A video based on the model inferences for `data/test/segment-1220038340136668284
 
 
 ***[#2] Train with Augmentation***
-- 0.2 probability of grayscale conversion: this could better simulate rainy or foggy weather conditions, or area under huge shadow
+- 0.02 probability gray scale conversion 
+- contrast value from 0.5 to 1.0 
+- brightness adjusted to 0.3 
+- The detailed pipeline is in `experiments/improved_augment/pipeline_new.config`.
+
+- 0.02 probability gray scale conversion 
 ![aug1](./images/aug_gray.png)
-- contrast value from 0.5 to 1.0: this added more variation to edge detectability
+
+- contrast value from 0.5 to 1.0 
 ![aug2](./images/aug_contrast.png)
-- brightness adjusted to 0.3: this could better simulate very sunny day with very bright light
+
+- brightness adjusted to 0.3 
 ![aug3](./images/aug_bright.png)
-More details of the agumentation can be found in `Explore augmentations.ipynb`, and the detailed pipeline is in `experiments/experiment2/pipeline_new.config`. However, due to limitation of memory in the VM workspace, we have to resort to batch size of `2`, and step size of `2500`, which is very likely not enough for the network to converge. As a result, the performance does improve a lot, compared with reference model.
+
 
 `Improved experiment2 - Loss : `
 
@@ -273,6 +280,13 @@ More details of the agumentation can be found in `Explore augmentations.ipynb`, 
 `Improved experiment2 - Recall : `
 
 ![exp2_recall](./images/imp2_recall.png)
+
+
+
+We can augment the images by converting them to grayscale with a probability of 0.2. After this, we have clamped the contrast values between 0.6 and 1.0 such that more lighting datapoints are available for classification. A greater part of the images were a bit darker and increasing the brightness to 0.3 provided an even datapoint which could be better classified with the model.The pipeline changes are there in
+
+More details of the agumentation can be found in `Explore augmentations.ipynb`, and the detailed pipeline is in `experiments/experiment2/pipeline_new.config`. However, due to limitation of memory in the VM workspace, we have to resort to batch size of `2`, and step size of `2500`, which is very likely not enough for the network to converge. As a result, the performance does improve a lot, compared with reference model.
+
 
 Althought we see a decrease in model loss, increase in precision and recall is tiny. The inference result is almost the same as that of the reference model, which barely detect anything. Thus, there is no pointing showing the inference video here.  
 
