@@ -193,8 +193,8 @@ Analysis for the downloaded dataset also can be performed.
 Below shows the distribution of classes number (vehicle, pedestrian, cyclist) and mean pixel value distribution of dataset.
 You can get these results by running 'Exploratory_Data_Analysis.ipynb'.
 
-<img src = "./images/data_analysis.png" width="500" height="400"/>
-<img src = "./images/mean_pixel.png" width="500" height="400"/>
+<img src = "./images/data_analysis.png" width="400" height="240"/>
+<img src = "./images/mean_pixel.png" width="400" height="240"/>
 
 
 #### Cross validation
