@@ -151,7 +151,7 @@ Detecting vehicles, pedestrians, signs, etc is very important issue in building 
 
 
 ### Set up
-If you want to set up this project in local computer with your own GPU, please use the Dockerfile to create the docker image from 'build' folder.
+If you want to set up this project in local computer with your own GPU, please use the Dockerfile to create the docker image from `build` folder.
 
 You can create docker image by following command. 
 
@@ -167,7 +167,7 @@ $ source ./run.sh
 
 
 ### Dataset
-You should downlaod the 'waymo' open dataset by Google Cloud before training the model.
+You should downlaod the `waymo` open dataset by Google Cloud before training the model.
 Please login google cloud with your account.
 
 ```
@@ -191,7 +191,7 @@ $ python create_splits.py --source data/processed --destination data
 
 Analysis for the downloaded dataset also can be performed. 
 Below shows the distribution of classes number (vehicle, pedestrian, cyclist) and mean pixel value distribution of dataset.
-You can get these results by running 'Exploratory_Data_Analysis.ipynb'.
+You can get these results by running `Exploratory_Data_Analysis.ipynb`.
 
 <img src = "./images/data_analysis.png" width="450" height="280"/>
 <img src = "./images/mean_pixel.png" width="450" height="280"/>
