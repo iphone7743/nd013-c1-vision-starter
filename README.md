@@ -251,10 +251,30 @@ Also, `localization loss` is showed less noisy than previous results.
 And metrices term `Precision` and `Recall` better than reference model training. 
 So it shows much better performance in object detection.
 
-
+You can apply change the batch size by Tensorflow Object Detection API.
+In this project, we can change the batch size `2` to `8` as you can check in details `experiments/improved_batch/pipeline_new.config`.
+```
+train_config {
+  batch_size: 8
+  data_augmentation_options {
+    random_horizontal_flip {
+    }
+  }
+  data_augmentation_options {
+    random_crop_image {
+      min_object_covered: 0.0
+      min_aspect_ratio: 0.75
+      max_aspect_ratio: 3.0
+      min_area: 0.75
+      max_area: 1.0
+      overlap_thresh: 0.0
+    }
+  }
+```
 
 
 ***[#2] Train with Augmentation***
+- We can overcome the overfitting issue by applying augmentation.
 - 0.02 probability gray scale conversion 
 - contrast value from 0.5 to 1.0 
 - brightness adjusted to 0.3 
@@ -283,6 +303,14 @@ So it shows much better performance in object detection.
 ![exp2_recall](./images/imp2_recall.png)
 
 
-The loss is lower than the previous loss (un-augmented model). This is an indication of better performance. There should be more samples of augmented datapoints such as combining the contrast values with grayscale. Brightness can also be clamped within a limit instead of fixing it to 0.3 However the most important point is to add more samples of cyclists,pedestrians which are in a low quantity in the dataset. This is an inherent requirement since model biases play an important role in the loss curves and lesser the diversity in training samples, the lower will be the accuracy.
+As you can see, `classification loss` is lower than reference training, and metrices `Precision` and `Recall` are better than reference model training.
+So it shows the better performance than reference training.
+Actually, increasing the batch size shows the better performance than augmentation method, but it's still effective in object detection.
 
-We have reduced overfitting to an extent with augmentation, however better classification results would be resulting from a more balanced dataset.
+You can apply the tensor flow object detection API with data augmentation. - `https://www.tensorflow.org/tutorials/images/data_augmentation`.
+For example, you can apply data augmentation for applying gray scale conversion.
+```
+grayscaled = tf.image.rgb_to_grayscale(image)
+visualize(image, tf.squeeze(grayscaled))
+_ = plt.colorbar()
+```
