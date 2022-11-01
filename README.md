@@ -205,24 +205,27 @@ The downloaded dataset is shuffled and split into `training`, `testing`, and `va
 
 ### Training
 #### Reference experiment
-Reference experiment without augmentation was performed. The config file is located in `experiments/reference/pipeline_new.config`.
+Reference experiment without augmentation was performed, and `experiments/reference/pipeline_new.config` shows the detailed parameters for training.
+There are results below. 
 
 `Reference experiment - Loss : `
 
-<img src = "./images/reference_loss.png" width="500" height="400"/>
+<img src = "./images/ref_loss.png" width="500" height="400"/>
 
 `Reference experiment - Recall : `
 
-<img src = "./images/reference_precision.png" width="500" height="400"/>
+<img src = "./images/ref_precision.png" width="500" height="400"/>
 
 `Reference experiment - Recall : `
 
-<img src = "./images/reference_recall.png" width="500" height="400"/>
+<img src = "./images/ref_recall.png" width="500" height="400"/>
 
+You can check the `classification loss` is upper than 20 at first and converges to zero later.
+And `localization loss` is showed extremely noisy in this result. 
+Now let's check metrices. 
+In DetectionBoxes_Recall/AR@100, `Recall` little bit changed in training step 2.4k later.
+But most of `Precision` and `Recall` are extremely low, so it is hard to use in object detection.
 
-
-
-It should includes training metrics and a detailed explanation of the algorithm's performances.
 
 #### Improve on the reference
 This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
