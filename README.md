@@ -148,7 +148,7 @@ And analysis between reference experiment and new method for improving model was
 
 Object detection is one of the most important component in self driving car sytstem, because car should avoid collision when driving.
 Detecting vehicles, pedestrians, signs, etc is very important issue in building self driving system.
-
+The github link of this project : https://github.com/iphone7743/nd013-c1-vision-starter
 
 ### Set up
 If you want to set up this project in local computer with your own GPU, please use the Dockerfile to create the docker image from `build` folder.
